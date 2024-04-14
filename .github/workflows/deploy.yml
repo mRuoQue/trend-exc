@@ -13,12 +13,18 @@ jobs:
       - name: Checkout
         uses:
           actions/checkout@v3
+      - name:
+        run: 
+          echo "checkout执行完成"
 
           # 构建
       - name: Install and Build
         uses: actions/setup-node@master
         with:
           node-version: "20.x"
+      - name: 
+        run: 
+          echo "构建完成"
 
         # 部署
       - name: deploy
@@ -30,3 +36,7 @@ jobs:
           user_name: ${{secrets.MY_USER_NAME}}
           user_email: ${{secrets.MY_USER_EMAIL}}
           commit_message: CICD自动部署
+      - name: 
+        run: |
+          echo(${{secrets.MY_USER_NAME}})
+          echo("部署完成")
