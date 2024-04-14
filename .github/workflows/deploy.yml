@@ -38,5 +38,5 @@ jobs:
           commit_message: CICD自动部署
       - name: Print deploy
         run: |
-          echo(${{secrets.MY_USER_NAME}})
-          echo("部署完成")
+          echo ${{secrets.MY_USER_NAME}}
+          echo "部署完成"
