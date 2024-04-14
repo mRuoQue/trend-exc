@@ -1,0 +1,32 @@
+name: deploy
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - README.md
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 校验
+      - name: Checkout
+        uses:
+          actions/checkout@v3
+
+          # 构建
+      - name: Install and Build
+        uses: actions/setup-node@master
+        with:
+          node-version: "20.x"
+
+        # 部署
+      - name: deploy
+        uses: peaceiris/actions-gh-master@v3
+        with:
+          branch: gh-master
+          publish_dir: ./dist
+          github_token: ${{secrets.TRENDEXC}}
+          user_name: ${{secrets.MY_USER_NAME}}
+          user_email: ${{secrets.MY_USER_EMAIL}}
+          commit_message: CICD自动部署
