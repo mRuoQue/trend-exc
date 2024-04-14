@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses:
           actions/checkout@v3
-      - name:
+      - name: Print checkout
         run: 
           echo "checkout执行完成"
 
@@ -22,7 +22,7 @@ jobs:
         uses: actions/setup-node@master
         with:
           node-version: "20.x"
-      - name: 
+      - name: Print build
         run: 
           echo "构建完成"
 
@@ -36,7 +36,7 @@ jobs:
           user_name: ${{secrets.MY_USER_NAME}}
           user_email: ${{secrets.MY_USER_EMAIL}}
           commit_message: CICD自动部署
-      - name: 
+      - name: Print deploy
         run: |
           echo(${{secrets.MY_USER_NAME}})
           echo("部署完成")
