@@ -2,11 +2,11 @@ const D = 200;
 const T = 2000;
 const aniMap = new WeakMap();
 
-const isBlowViewport = (el:Element)=>{
-    const rect = el.getBoundingClientRect()
-    const windowInner = window.innerHeight
-    return rect.top > windowInner
-}
+const isBlowViewport = (el: Element) => {
+  const rect = el.getBoundingClientRect();
+  const windowInner = window.innerHeight;
+  return rect.top > windowInner;
+};
 
 const ob = new IntersectionObserver((entries: any[]) => {
   for (const entry of entries) {
@@ -21,9 +21,9 @@ const ob = new IntersectionObserver((entries: any[]) => {
 export default function (app: any) {
   app.directive("slide", {
     mounted(el: Element) {
-        if(!isBlowViewport(el)){
-            return
-        }
+      if (!isBlowViewport(el)) {
+        return;
+      }
       const animation = el.animate(
         [
           {
@@ -39,6 +39,7 @@ export default function (app: any) {
           duration: T,
         }
       );
+      animation.pause();
 
       aniMap.set(el, animation);
       ob.observe(el);

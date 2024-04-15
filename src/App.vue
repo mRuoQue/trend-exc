@@ -1,14 +1,10 @@
 <script setup lang="ts">
-import trendAnimationVue from "./components/trendAnimation.vue";
-
 </script>
 
 <template>
   <div>
-    <trendAnimationVue />
+    <router-view></router-view>
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
