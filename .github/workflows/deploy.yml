@@ -19,9 +19,13 @@ jobs:
 
           # 构建
       - name: Install and Build
-        uses: actions/setup-node@master
-        with:
-          node-version: "20.x"
+        # uses: actions/setup-node@master
+        run: |
+          npm install
+          npm build
+        # with:
+          # node-version: "20.x"
+
       - name: Print build
         run: 
           echo "构建完成"
