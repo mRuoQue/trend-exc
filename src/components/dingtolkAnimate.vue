@@ -44,7 +44,7 @@ onMounted(() => {
   updateStyles();
 });
 
-// 通过滚动距离计算动画变化
+// 通过滚动距离计算动画变化状态
 const createAnimation = (scrollStart, scrollEnd, valueStart, valueEnd) => {
   return (x) => {
     if (x <= scrollStart) {
