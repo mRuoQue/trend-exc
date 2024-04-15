@@ -53,9 +53,8 @@ const createAnimation = (scrollStart, scrollEnd, valueStart, valueEnd) => {
     if (x >= scrollEnd) {
       return valueEnd;
     }
-
-    const k = (x - scrollStart) / (scrollEnd - scrollStart);
-    return valueStart + k * (valueEnd - valueStart);
+    const k = (valueEnd - valueStart) / (scrollEnd - scrollStart);
+    return valueStart + k * (x - scrollStart);
   };
 };
 
@@ -81,7 +80,7 @@ const updateAnimationMap = () => {
   for (let i = 0; i < domItems.value.length; i++) {
     const aniDom = domItems.value[i];
     // 下一组动画出现偏移量
-    const scrollStart = sportAreaTop + Number(aniDom.dataset.num) *200;
+    const scrollStart = sportAreaTop + Number(aniDom.dataset.num) * 200;
     const scrollEnd = sportAreaBottom;
     const itemWidth = aniDom.clientWidth;
     const itemHeight = aniDom.clientHeight;
